@@ -12,6 +12,3 @@ function userJSONReady(users) {
   usersDiv.innerHTML = (usersHTML);
 }
 
-let promise = fetch("https://jsonplaceholder.typicode.com/users");
-promise = promise.then(usersRetrieved);
-promise.then(userJSONReady);
