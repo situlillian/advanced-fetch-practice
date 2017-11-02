@@ -24,9 +24,7 @@ getJsonPromise.then(userJSONReady);
 //4) now you can run the function that you want
 
 
-function commentsRetrieved(response) {
-  return response.json();
-}
+// shorthand below
 
 function commentJSONReady(comments) {
   const commentsDiv = document.getElementById("comments");
@@ -38,6 +36,6 @@ function commentJSONReady(comments) {
   commentsDiv.innerHTML = (commentsHTML);
 }
 
-const commentRequestPromise = fetch("https://jsonplaceholder.typicode.com/comments");
-const getJsonPromise2 = commentRequestPromise.then(commentsRetrieved);
-getJsonPromise2.then(commentJSONReady);
+fetch("https://jsonplaceholder.typicode.com/comments").then((response) => {
+  return response.json();
+}).then(commentJSONReady);
