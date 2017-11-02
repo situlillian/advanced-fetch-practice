@@ -1,6 +1,7 @@
 function usersRetrieved(response) {
   return response.json();
 }
+
 function userJSONReady(users) {
   const usersDiv = document.getElementById("users");
   let usersHTML = "";
@@ -12,8 +13,16 @@ function userJSONReady(users) {
 }
 
 const userRequestPromise = fetch("https://jsonplaceholder.typicode.com/users");
+//1) make web call to url
+//ask the operating system to make a network call through your wifi or network card
+//2) return a promise object
+
 const getJsonPromise = userRequestPromise.then(usersRetrieved);
+//3) pretend the web request is finished at this point
+//convert body into a javascript object
 getJsonPromise.then(userJSONReady);
+//4) now you can run the function that you want
+
 
 function commentsRetrieved(response) {
   return response.json();
